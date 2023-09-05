@@ -3,7 +3,7 @@ const cifraoContainer = document.body;
 
 audioButton.addEventListener("click", () => {
   playRandomAudio();
-  createFallingCifrao();
+  createFallingCifraos(30); // Número de cifrões que você deseja criar
 });
 
 function playRandomAudio() {
@@ -15,19 +15,22 @@ function playRandomAudio() {
   audioElement.play();
 }
 
-function createFallingCifrao() {
-  const cifrao = document.createElement("div");
-  cifrao.className = "cifrao";
-  cifrao.textContent = "$";
-  cifrao.style.left = Math.random() * window.innerWidth + "px";
-  cifraoContainer.appendChild(cifrao);
+function createFallingCifraos(numCifraos) {
+  for (let i = 0; i < numCifraos; i++) {
+    const cifrao = document.createElement("div");
+    cifrao.className = "cifrao";
+    cifrao.textContent = "$";
+    cifrao.style.left = Math.random() * window.innerWidth + "px";
+    cifrao.style.top = -30 + "px"; // Começa acima do topo da janela
+    cifraoContainer.appendChild(cifrao);
 
-  const animationDuration = Math.random() * 3 + 2;
-  const fontSize = Math.random() * 100 + 25; // Tamanhos de fonte variados
-  cifrao.style.fontSize = fontSize + "px";
-  cifrao.style.animation = `fall ${animationDuration}s linear`;
+    const animationDuration = Math.random() * 3 + 2;
+    const fontSize = Math.random() * 100 + 25; // Tamanhos de fonte variados
+    cifrao.style.fontSize = fontSize + "px";
+    cifrao.style.animation = `fall ${animationDuration}s linear`;
 
-  cifrao.addEventListener("animationend", () => {
-    cifrao.remove();
-  });
+    cifrao.addEventListener("animationend", () => {
+      cifrao.remove();
+    });
+  }
 }
