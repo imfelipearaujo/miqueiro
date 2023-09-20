@@ -8,7 +8,7 @@ audioButton.addEventListener("click", () => {
 
 function playRandomAudio() {
   const audioFolder = "Media/";
-  const audioFiles = ["audio1.mp3", "audio2.mp3", "audio3.mp3", "audio4.mp3", "audio5.mp3"];
+  const audioFiles = ["audio1.mp3", "audio2.mp3", "audio3.mp3", "audio4.mp3", "audio5.mp3", "audio6.mp3", "audio7.mp3"];
   const randomIndex = Math.floor(Math.random() * audioFiles.length);
   const audioPath = audioFolder + audioFiles[randomIndex];
   const audioElement = new Audio(audioPath);
